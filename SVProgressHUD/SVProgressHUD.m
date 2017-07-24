@@ -139,17 +139,17 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 #pragma mark - Show Methods
 
 + (void)show {
-    [[UIApplication sharedApplication]beginIgnoringInteractionEvents];
+    
     [self showWithStatus:nil];
 }
 
 + (void)showWithMaskType:(SVProgressHUDMaskType)maskType {
-    [[UIApplication sharedApplication]beginIgnoringInteractionEvents];
     [self showProgress:SVProgressHUDUndefinedProgress maskType:maskType];
+    
 }
 
 + (void)showWithStatus:(NSString *)status {
-    [[UIApplication sharedApplication]beginIgnoringInteractionEvents];
+    
     [self showProgress:SVProgressHUDUndefinedProgress status:status];
 }
 
@@ -229,8 +229,6 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 }
 
 + (void)dismiss {
-    
-    [[UIApplication sharedApplication]endIgnoringInteractionEvents];
     if ([self isVisible]) {
         [[self sharedView] dismiss];
         NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
